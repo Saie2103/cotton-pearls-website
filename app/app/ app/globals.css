@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-pearl-white text-indigo font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display uppercase tracking-tightest;
+  }
+
+  /* Visible keyboard focus everywhere — never suppressed for aesthetics. */
+  :focus-visible {
+    outline: 2px solid theme("colors.indigo.DEFAULT");
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Structural hairline divider — the site's recurring signature element */
+  .grid-line {
+    @apply border-indigo/15;
+  }
+
+  .btn-mint {
+    @apply inline-flex items-center justify-center gap-2 bg-mint text-indigo
+           font-display uppercase tracking-widest text-xs
+           px-6 py-3 border border-indigo
+           transition-colors duration-150 hover:bg-mint-dim
+           active:translate-y-[1px];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent text-indigo
+           font-display uppercase tracking-widest text-xs
+           px-6 py-3 border border-indigo
+           transition-colors duration-150 hover:bg-indigo hover:text-pearl-white;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 bg-mint text-indigo
+           font-display uppercase tracking-widest text-[10px]
+           px-2.5 py-1 border border-indigo;
+  }
+
+  .badge-outline {
+    @apply inline-flex items-center gap-1 bg-transparent text-indigo
+           font-display uppercase tracking-widest text-[10px]
+           px-2.5 py-1 border border-indigo/40;
+  }
+
+  .eyebrow {
+    @apply font-display uppercase tracking-widest text-xs text-indigo/70;
+  }
+}
